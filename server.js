@@ -8,7 +8,7 @@ var myApp = require('./myApp');
 var express = require('express');
 var app = express();
 app.get("/",function(req,res){
-  res.send("Hello Express");
+  res.send('Hello Express');
 });
 if (!process.env.DISABLE_XORIGIN) {
   app.use(function(req, res, next) {
