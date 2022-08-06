@@ -22,6 +22,17 @@ app.get("/json",function(req,res){
     }
 });
 
+function gettime()
+{
+    return new Date().toString();
+}
+
+app.get("/now",function(req,res,next){
+    req.time=gettime();
+    next();
+},function(req,res){
+   res.json({time: req.time})
+});
 
 
 
