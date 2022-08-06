@@ -8,11 +8,9 @@ var myApp = require('./myApp');
 var express = require('express');
 var app = express();
 app.get("/",(req, res) => {
-  res.send("Hello Express");
+  res.send('Hello Express');
 });
-app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/views/index.html");
-});
+
 if (!process.env.DISABLE_XORIGIN) {
   app.use(function(req, res, next) {
     var allowedOrigins = ['https://narrow-plane.gomix.me', 'https://www.freecodecamp.com'];
