@@ -7,8 +7,8 @@ var bGround = require('fcc-express-bground');
 var myApp = require('./myApp');
 var express = require('express');
 var app = express();
-app.get("/",(req, res) => {
-  res.send('Hello Express');
+app.get("/",function(req, res) {
+  res.send('Response String');
 });
 
 if (!process.env.DISABLE_XORIGIN) {
