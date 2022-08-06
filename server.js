@@ -11,7 +11,7 @@ app.get("/",(req, res) => {
   res.send("Hello Express");
 });
 app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/public/index.html");
+  res.sendFile(__dirname + "/views/index.html");
 });
 if (!process.env.DISABLE_XORIGIN) {
   app.use(function(req, res, next) {
