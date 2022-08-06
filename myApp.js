@@ -12,19 +12,20 @@ app.use(function(req,res,next){
 // Assets at the /public route
  app.use("/public", express.static(__dirname + "/public"));
 
- app.get(
-    "/now",
-    (req, res, next) => {
+ var delayInMilliseconds = 1000; //1 second
+
+ app.get('/now', (req, res, next) => {
       req.time = new Date().toString();
-      next();
-    },
-    (req, res) => {
-      res.send({
-        time: req.time
-      });
-    }
-  );
-  
+      next()
+ }, (req, res) => {
+ setTimeout(function() {
+   //your code to be executed after 1 second
+     res.json({
+       time: req.time
+     })
+ }, [delayInMilliseconds]);
+ }); 
+ 
 app.get("/json",function(req,res){
     if(process.env.MESSAGE_STYLE === "uppercase")
     {
@@ -35,10 +36,6 @@ app.get("/json",function(req,res){
     }
 });
 
-function gettime()
-{
-    return new Date().toString();
-}
 
 
 
