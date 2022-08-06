@@ -12,6 +12,19 @@ app.use(function(req,res,next){
 // Assets at the /public route
  app.use("/public", express.static(__dirname + "/public"));
 
+ app.get(
+    "/now",
+    (req, res, next) => {
+      req.time = new Date().toString();
+      next();
+    },
+    (req, res) => {
+      res.send({
+        time: req.time
+      });
+    }
+  );
+  
 app.get("/json",function(req,res){
     if(process.env.MESSAGE_STYLE === "uppercase")
     {
@@ -27,18 +40,7 @@ function gettime()
     return new Date().toString();
 }
 
-app.get(
-    "/now",
-    (req, res, next) => {
-      req.time = new Date().toString();
-      next();
-    },
-    (req, res) => {
-      res.send({
-        time: req.time
-      });
-    }
-  );
+
 
 
 
