@@ -7,7 +7,8 @@ app.use(function(req,res,next){
     next();
 });
 
- 
+console.log("HELLO"); 
+
  app.use(express.static(__dirname + "/public"));
 // Assets at the /public route
  app.use("/public", express.static(__dirname + "/public"));
